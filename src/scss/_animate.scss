@@ -1,0 +1,9 @@
+.from-left{
+  transform: translateX(-200%);
+}
+.from-right{
+  transform: translateX(200%);
+}
+.from-right.show,.from-left.show{
+  transform: translateX(0);
+}
