@@ -11,9 +11,10 @@ const bg2 = document.querySelector("#mbg2");
 //прокручиваем body
 let step = 0;
 let elem;
+elem = document.body;
+
 console.log(document.body.clientWidth);
 if (document.body.clientWidth > 1000) {
-    elem = document.body;
 
     if (elem.addEventListener) {
         if ("onwheel" in document) {
@@ -65,56 +66,54 @@ if (document.body.clientWidth > 1000) {
         //e.preventDefault ? e.preventDefault() : (e.returnValue = false);
     }
 } else {
-    //я бы все переписал 
-    elem = document.body;
-    elem.style.overflow = "hidden";
-    let startY, endY;
-    let deltaY;
-    document.addEventListener(
-        "touchmove",
-        (e) => {
-            e.preventDefault();
-        },
-        { passive: false }
-    );
+    document.addEventListener("touchstart", handleTouchStart, false);
+    document.addEventListener("touchmove", handleTouchMove, false);
 
-    document.addEventListener("touchstart", function (event) {
-        startY = event.touches[0].clientY;
-    });
-
-    document.addEventListener("touchmove", function (event) {
-        endY = event.touches[0].clientY;
-        deltaY = startY - endY;
-
-        step++;
-        console.log(deltaY);
-        if (deltaY < -50) {
-            document.querySelector("#top").scrollIntoView({
+    let yperem = null;
+    let step = 0;
+    function handleTouchStart(event) {
+        // обработка события touchmove
+        const touch = event.touches[0];
+        yperem = touch.clientY;
+       
+    }
+    function handleTouchMove(event) {
+        if(!yperem){
+            return false;
+        }
+        
+        let yperemEnd = event.touches[0].clientY;
+        let yDiff = yperemEnd - yperem;
+        // обработка события touchmove
+        if(yDiff < 0){
+            step++;
+            console.log('вниз');
+        }
+        console.log(step);
+        if (step == 1) {
+            title.classList.add("show");
+        }
+        if (step == 2) {
+            subTitle.classList.add("show");
+        }
+        if (step == 3) {
+            service.classList.add("show");
+        }
+        if (step == 4) {
+            elem.style.position = "relative";
+            document.querySelector("#topright").scrollIntoView({
                 behavior: "smooth",
             });
+            
+            
+            setTimeout(() => {
+                form.classList.add("show");
+                bg2.classList.add("show");
+                //elem.style.position = "";
+                elem.style.overflow = "auto";
+                
+            }, 1000);
         }
-        mobileAnimation(step);
-    });
-}
-function mobileAnimation(step) {
-    if (step > 10) {
-        title.classList.add("show");
-    }
-    if (step > 20) {
-        subTitle.classList.add("show");
-    }
-    if (step > 40) {
-        service.classList.add("show");
-    }
-    if (step > 60) {
-        form.classList.add("show");
-        document.querySelector("#topright").scrollIntoView({
-            behavior: "smooth",
-        });
-        setTimeout(() => {
-            bg2.classList.add("show");
-            elem.style.overflow = "auto";
-
-        }, 1000);
+        yperem = null;
     }
 }

@@ -65,6 +65,7 @@ h4 {
 @media (max-width: 1200px) {
   .container.short {
     padding: 0 clamp(20px, 10vw, 50px);
+    overflow: hidden;
   }
 }
 @media (max-width: 676) {
@@ -535,6 +536,12 @@ nav a {
   transform: translateY(0);
   animation: scrollme 1s infinite alternate;
 }
+@media (max-width: 1000px) {
+  .main-form__scroll {
+    padding-top: 0;
+    top: calc(100vh - 80px);
+  }
+}
 .main-form__scroll p {
   text-transform: uppercase;
   color: white;
@@ -552,10 +559,15 @@ nav a {
   .header {
     position: relative;
   }
+  body {
+    position: fixed;
+    background-attachment: fixed;
+    width: 100%;
+  }
   .main-form {
     height: auto;
     position: unset;
-    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
     padding-top: clamp(20px, 10vw, 100px);
   }
   .main-form__right {
@@ -595,6 +607,7 @@ nav a {
 @media (max-width: 676px) {
   .radio-contain {
     width: 33%;
+    padding-right: 25px !important;
   }
 }
 /*анимация поплавка скрола*/

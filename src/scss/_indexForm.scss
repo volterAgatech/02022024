@@ -19,7 +19,7 @@
     bottom: 0;
     right: 0;
     z-index: 0;
-    
+
   }
 
   &__lr {
@@ -191,6 +191,10 @@
       transform: translateY(0);
       animation: scrollme 1s infinite alternate;
     }
+    @media (max-width:1000px) {
+      padding-top: 0;
+      top: calc(100vh - 80px);
+    }
 
     p {
       text-transform: uppercase;
@@ -202,19 +206,29 @@
     }
   }
 }
-.main-form__bg-elem.mobile{
+
+.main-form__bg-elem.mobile {
   display: none;
 }
+
 @media (max-width:1000px) {
   .header {
     position: relative;
   }
 
+  body {
+    position: fixed;
+    background-attachment: fixed;
+    width: 100%;
+  }
+
   .main-form {
     height: auto;
     position: unset;
-    height: 100vh;
-    padding-top: clamp(20px,10vw,100px);
+    //height: 100vh;
+    //height: calc(100vh - 130px);
+    height: calc(var(--vh, 1vh) * 100);
+    padding-top: clamp(20px, 10vw, 100px);
   }
 
   .main-form__right {
@@ -230,9 +244,11 @@
   .main-form__bg-elem {
     display: none;
   }
-  .main-form-formcontain{
+
+  .main-form-formcontain {
     height: auto;
   }
+
   .main-form__bg-elem.mobile {
     display: block;
     z-index: -1;
@@ -251,16 +267,20 @@
       font-size: 16px;
     }
   }
-  .main-form .radio{
+
+  .main-form .radio {
     flex-wrap: wrap;
     gap: 10px;
   }
 }
+
 @media (max-width:676px) {
-  .radio-contain{
+  .radio-contain {
     width: 33%;
+    padding-right: 25px !important;
   }
 }
+
 /*анимация поплавка скрола*/
 @keyframes scrollme {
   0% {

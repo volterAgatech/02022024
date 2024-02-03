@@ -1,3 +1,9 @@
+function initVh() {
+    console.log(window.innerHeight);
+    let vh = window.innerHeight * 0.01;
+    document.documentElement.style.setProperty('--vh', `${vh}px`);
+}
+initVh()
 let menu = document.querySelector(".menu-contain");
 let subMenu = document.querySelector(".sub-menu");
 let subMenuM = document.querySelector(".header__mobil-nav .sub-menu");
