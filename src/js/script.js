@@ -1,9 +1,8 @@
 function initVh() {
-    console.log(window.innerHeight);
     let vh = window.innerHeight * 0.01;
-    document.documentElement.style.setProperty('--vh', `${vh}px`);
+    document.documentElement.style.setProperty("--vh", `${vh}px`);
 }
-initVh()
+initVh();
 let menu = document.querySelector(".menu-contain");
 let subMenu = document.querySelector(".sub-menu");
 let subMenuM = document.querySelector(".header__mobil-nav .sub-menu");
@@ -43,7 +42,6 @@ document.querySelector("#myForm").addEventListener("submit", function (event) {
     event.preventDefault();
     let art = document.querySelector("#articule").value;
     let data_body = "art=" + art;
-    console.log(art);
     let jsonIner = document.querySelector(".stat");
 
     function parseJsone(jsone) {
@@ -51,7 +49,6 @@ document.querySelector("#myForm").addEventListener("submit", function (event) {
             jsonIner.innerHTML = "<h2>Нет даты</h2>";
         } else {
             jsone = JSON.parse(jsone);
-            console.log(jsone);
 
             const table = document.getElementById("productTable");
 
@@ -113,19 +110,3 @@ document
             })
             .then((i) => parseJsone(i));
     });
-//отслеживаем ползунок
-const value = document.querySelector(".value");
-const input = document.querySelector(".main-form__range");
-value.textContent = input.value;
-input.addEventListener("input", (event) => {
-    value.textContent = event.target.value;
-});
-
-for (let e of document.querySelectorAll(
-    'input[type="range"].main-form__range'
-)) {
-    e.style.setProperty("--value", e.value);
-    e.style.setProperty("--min", e.min == "" ? "0" : e.min);
-    e.style.setProperty("--max", e.max == "" ? "100" : e.max);
-    e.addEventListener("input", () => e.style.setProperty("--value", e.value));
-}

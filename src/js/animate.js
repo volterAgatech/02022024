@@ -13,7 +13,6 @@ let step = 0;
 let elem;
 elem = document.body;
 
-console.log(document.body.clientWidth);
 if (document.body.clientWidth > 1000) {
 
     if (elem.addEventListener) {
@@ -43,7 +42,6 @@ if (document.body.clientWidth > 1000) {
         let delta = e.deltaY || e.detail || e.wheelDelta;
 
         sum = sum + delta;
-        console.log(sum);
         if (sum > 1000) {
             title.classList.add("show");
         }
@@ -87,9 +85,7 @@ if (document.body.clientWidth > 1000) {
         // обработка события touchmove
         if(yDiff < 0){
             step++;
-            console.log('вниз');
         }
-        console.log(step);
         if (step == 1) {
             title.classList.add("show");
         }

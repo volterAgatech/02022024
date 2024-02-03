@@ -191,6 +191,7 @@
       transform: translateY(0);
       animation: scrollme 1s infinite alternate;
     }
+
     @media (max-width:1000px) {
       padding-top: 0;
       top: calc(100vh - 80px);
@@ -278,6 +279,21 @@
   .radio-contain {
     width: 33%;
     padding-right: 25px !important;
+  }
+}
+
+@media (max-width:480px) {
+  .main-form {
+    padding-top: 5px;
+  }
+
+  .main-form__scroll {
+    justify-content: flex-end;
+    position: fixed;
+  }
+
+  .main-form__scroll .scroll__container {
+    padding-right: 20px;
   }
 }
 

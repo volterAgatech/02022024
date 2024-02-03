@@ -252,3 +252,21 @@
     </div>
   </div>
 </section>
+<script>
+  //отслеживаем ползунок
+  const value = document.querySelector(".value");
+  const input = document.querySelector(".main-form__range");
+  value.textContent = input.value;
+  input.addEventListener("input", (event) => {
+  value.textContent = event.target.value;
+  });
+
+  for (let e of document.querySelectorAll(
+  'input[type="range"].main-form__range'
+  )) {
+  e.style.setProperty("--value", e.value);
+  e.style.setProperty("--min", e.min == "" ? "0" : e.min);
+  e.style.setProperty("--max", e.max == "" ? "100" : e.max);
+  e.addEventListener("input", () => e.style.setProperty("--value", e.value));
+  }
+  </script>
