@@ -39,7 +39,7 @@ h4 {
   @media (max-width:1200px) {
     padding: 0 clamp(20px, 10vw, 50px);
   }
-  @media (max-width:676px) {
+  @media (max-width:400px) {
     padding: 0 10px;
   }
 }
@@ -61,7 +61,7 @@ h4 {
     padding: 0 clamp(20px, 10vw, 50px);
     overflow: hidden;
   }
-  @media (max-width:676) {
+  @media (max-width:400px) {
     padding: 0 10px;
   }
 }

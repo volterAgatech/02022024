@@ -42,7 +42,7 @@
       content: "";
       height: 5px;
       width: 173px;
-      bottom: -6px;
+      bottom: -9px;
       background-color: #BAF1FF;
     }
 
@@ -257,14 +257,19 @@
   }
 
   .main-form__service ul {
-    display: block;
+    //justify-content: space-around;
 
     svg {
       max-width: 80px;
     }
 
+    li {
+      padding-right: 20px;
+    }
+
     p {
-      max-width: none;
+      // max-width: none;
+      max-width: 170px;
       font-size: 16px;
     }
   }
@@ -273,6 +278,18 @@
     flex-wrap: wrap;
     gap: 10px;
   }
+
+}
+
+@media (max-width:1200px) {
+  .svg-container {
+    text-align: center;
+  }
+
+  .main-form__item-service {
+    display: grid;
+    grid-template-columns: 50px auto;
+  }
 }
 
 @media (max-width:676px) {
@@ -280,6 +297,8 @@
     width: 33%;
     padding-right: 25px !important;
   }
+
+
 }
 
 @media (max-width:480px) {
@@ -295,8 +314,29 @@
   .main-form__scroll .scroll__container {
     padding-right: 20px;
   }
-}
 
+  .main-form__left {
+    display: grid;
+    align-content: center;
+  }
+
+  h2 {
+    font-size: 40px;
+  }
+
+  .main-form__subtitle h3 {
+    font-size: 28px;
+  }
+}
+@media (max-width:400px) {
+  h2 {
+    font-size: 32px;
+  }
+
+  .main-form__subtitle h3 {
+    font-size: 18px;
+  }
+}
 /*анимация поплавка скрола*/
 @keyframes scrollme {
   0% {
