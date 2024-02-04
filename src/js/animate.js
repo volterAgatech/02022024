@@ -96,11 +96,27 @@ if (document.body.clientWidth > 1000) {
             service.classList.add("show");
         }
         if (step == 4) {
-            elem.style.position = "relative";
+           // 
+           document.addEventListener("scroll", function() {
+            console.clear();
+            
+            console.log(
+              "↓↑ end:", this.scrollHeight === this.scrollTop + this.clientHeight,
+          
+              this.scrollHeight, this.scrollTop, this.clientHeight
+            );
+              
+            console.log(
+              "←→ end:", this.scrollWidth === this.scrollLeft + this.clientWidth,
+          
+              this.scrollWidth, this.scrollLeft, this.clientWidth
+            );
+          });
+           //
             document.querySelector("#topright").scrollIntoView({
                 behavior: "smooth",
             });
-            
+            elem.style.position = "relative";
             
             setTimeout(() => {
                 form.classList.add("show");

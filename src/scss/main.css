@@ -575,7 +575,7 @@ nav a {
     align-items: center;
   }
   .main-form__left {
-    height: 100vh;
+    height: calc(var(--vh, 1vh) * 100);
   }
   .main-form__bg-elem {
     display: none;
